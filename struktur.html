@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bagan Struktur Organisasi Aston Denpasar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .org-tree ul {
+            padding-top: 20px;
+            position: relative;
+            transition: all 0.5s;
+            display: flex;
+            justify-content: center;
+        }
+        .org-tree li {
+            float: left;
+            text-align: center;
+            list-style-type: none;
+            position: relative;
+            padding: 20px 5px 0 5px;
+            transition: all 0.5s;
+        }
+        /* Garis penghubung */
+        .org-tree li::before, .org-tree li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 50%;
+            border-top: 2px solid #ccc;
+            width: 50%;
+            height: 20px;
+        }
+        .org-tree li::after {
+            right: auto;
+            left: 50%;
+            border-left: 2px solid #ccc;
+        }
+        .org-tree li:only-child::after, .org-tree li:only-child::before {
+            display: none;
+        }
+        .org-tree li:only-child {
+            padding-top: 0;
+        }
+        .org-tree li:first-child::before, .org-tree li:last-child::after {
+            border: 0 none;
+        }
+        .org-tree li:last-child::before {
+            border-right: 2px solid #ccc;
+            border-radius: 0 5px 0 0;
+        }
+        .org-tree li:first-child::after {
+            border-radius: 5px 0 0 0;
+        }
+        .org-tree ul ul::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            border-left: 2px solid #ccc;
+            width: 0;
+            height: 20px;
+        }
+        .node {
+            border: 2px solid #ccc;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 8px;
+            background-color: white;
+            min-width: 140px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .node-gm { border-color: #1e3a8a; background-color: #eff6ff; }
+        .node-hod { border-color: #059669; background-color: #ecfdf5; }
+        .node-staff { border-color: #9ca3af; background-color: #f9fafb; }
+        .highlight { border-color: #dc2626; background-color: #fef2f2; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-gray-100 p-8 font-sans">
+
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-gray-800">Struktur Organisasi</h1>
+            <h2 class="text-xl text-blue-800 uppercase tracking-widest">Aston Denpasar Hotel & Convention Center</h2>
+        </div>
+
+        <div class="org-tree overflow-x-auto">
+            <ul>
+                <li>
+                    <div class="node node-gm">
+                        <div class="text-xs font-bold text-blue-900 uppercase">General Manager</div>
+                        <div class="text-sm">I Gede Adi Suardi</div>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="node node-gm">
+                                <div class="text-xs font-bold text-blue-900 uppercase">Deputy General Manager</div>
+                                <div class="text-sm">Management Team</div>
+                            </div>
+                            <ul>
+                                <!-- HOD List -->
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Front Office</div>
+                                        <div class="text-[10px] text-gray-500 italic">Manager</div>
+                                    </div>
+                                    <ul>
+                                        <li><div class="node node-staff text-[10px]">Receptionist<br>Bellboy<br>Reservation</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Housekeeping</div>
+                                        <div class="text-[10px] text-gray-500 italic">Manager</div>
+                                    </div>
+                                    <ul>
+                                        <li><div class="node node-staff text-[10px]">Room Attendant<br>Public Area<br>Laundry</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Food & Beverage</div>
+                                        <div class="text-[10px] text-gray-500 italic">Manager</div>
+                                    </div>
+                                    <ul>
+                                        <li><div class="node node-staff text-[10px]">Waiter/Waitress<br>Bartender</div></li>
+                                    </ul>
+                                </li>
+                                <!-- HIGHLIGHT SECTION (SATRIA) -->
+                                <li>
+                                    <div class="node node-hod highlight">
+                                        <div class="text-xs font-bold text-red-900 uppercase">F&B Product</div>
+                                        <div class="text-sm font-semibold">Komang Aryana</div>
+                                        <div class="text-[10px] text-gray-500 italic">Executive Chef</div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <div class="node node-staff text-[10px] border-red-300">
+                                                <strong>Kitchen Crew</strong><br>
+                                                <span class="text-blue-600">(Gusti Ngurah Satria)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Sales & Marketing</div>
+                                        <div class="text-[10px] text-gray-500 italic">Manager</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Engineering</div>
+                                        <div class="text-[10px] text-gray-500 italic">Chief Engineer</div>
+                                    </div>
+                                    <ul>
+                                        <li><div class="node node-staff text-[10px]">Technicians</div></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Finance & HR</div>
+                                        <div class="text-[10px] text-gray-500 italic">Managers</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="node node-hod">
+                                        <div class="text-xs font-bold text-green-900 uppercase">Security</div>
+                                        <div class="text-[10px] text-gray-500 italic">Security Manager</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="mt-12 p-4 bg-blue-50 border-l-4 border-blue-500 text-sm text-gray-700">
+            <p><strong>Catatan:</strong> Departemen F&B Product (Kitchen) sengaja diberi sorotan merah untuk menunjukkan area penempatan Praktik Kerja Lapangan (PKL) penulis.</p>
+        </div>
+    </div>
+
+</body>
+</html>
